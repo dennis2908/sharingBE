@@ -1,0 +1,1088 @@
+{
+	"info": {
+		"_postman_id": "49596c3b-bd44-4d4a-99fb-e6964339d375",
+		"name": "API BEEGO",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "UserAccount",
+			"item": [
+				{
+					"name": "Testing UserLogin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9333/UserLogin?username=dennis&password=dennis",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9333",
+							"path": [
+								"UserLogin"
+							],
+							"query": [
+								{
+									"key": "username",
+									"value": "dennis"
+								},
+								{
+									"key": "password",
+									"value": "dennis"
+								}
+							]
+						},
+						"description": "Testing UserLogin"
+					},
+					"response": []
+				},
+				{
+					"name": "Testing DeleteUser",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9333/DeleteUser?user_id=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9333",
+							"path": [
+								"DeleteUser"
+							],
+							"query": [
+								{
+									"key": "user_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Testing CreateUser",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9333/CreateUser?username=riza2&password=riza2&email=riza2@yahoo.com&status=2&ktp_no=1132132321312",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9333",
+							"path": [
+								"CreateUser"
+							],
+							"query": [
+								{
+									"key": "username",
+									"value": "riza2"
+								},
+								{
+									"key": "password",
+									"value": "riza2"
+								},
+								{
+									"key": "email",
+									"value": "riza2@yahoo.com"
+								},
+								{
+									"key": "status",
+									"value": "2"
+								},
+								{
+									"key": "ktp_no",
+									"value": "1132132321312"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Testing DeactivateUser",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9333/DeactivateUser?user_id=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9333",
+							"path": [
+								"DeactivateUser"
+							],
+							"query": [
+								{
+									"key": "user_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Testing EditUser",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9333/EditUser?user_id=2&username=maman&password=password&ktp_no=1221122&status=2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9333",
+							"path": [
+								"EditUser"
+							],
+							"query": [
+								{
+									"key": "user_id",
+									"value": "2"
+								},
+								{
+									"key": "username",
+									"value": "maman"
+								},
+								{
+									"key": "password",
+									"value": "password"
+								},
+								{
+									"key": "ktp_no",
+									"value": "1221122"
+								},
+								{
+									"key": "status",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Testing AuthenticateUser",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9333/AuthenticateUser/?email=manullang_d@yahoo.com",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9333",
+							"path": [
+								"AuthenticateUser",
+								""
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "manullang_d@yahoo.com"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PartnerAccount",
+			"item": [
+				{
+					"name": "Testing PartnerLogin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9333/PartnerLogin/?username=dennis&password=dennis",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9333",
+							"path": [
+								"PartnerLogin",
+								""
+							],
+							"query": [
+								{
+									"key": "username",
+									"value": "dennis"
+								},
+								{
+									"key": "password",
+									"value": "dennis"
+								}
+							]
+						},
+						"description": "Testing UserLogin"
+					},
+					"response": []
+				},
+				{
+					"name": "Testing DeletePartner",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9333/DeletePartner/?partner_id=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9333",
+							"path": [
+								"DeletePartner",
+								""
+							],
+							"query": [
+								{
+									"key": "partner_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Testing CreatePartner",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9333/CreatePartner?username=riza&password=riza&email=riza@yahoo.com&status=2&ktp_no=1132132321312&ljk_id=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9333",
+							"path": [
+								"CreatePartner"
+							],
+							"query": [
+								{
+									"key": "username",
+									"value": "riza"
+								},
+								{
+									"key": "password",
+									"value": "riza"
+								},
+								{
+									"key": "email",
+									"value": "riza@yahoo.com"
+								},
+								{
+									"key": "status",
+									"value": "2"
+								},
+								{
+									"key": "ktp_no",
+									"value": "1132132321312"
+								},
+								{
+									"key": "ljk_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Testing DeactivatePartner",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9333/DeactivatePartner?partner_id=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9333",
+							"path": [
+								"DeactivatePartner"
+							],
+							"query": [
+								{
+									"key": "partner_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Testing EditPartner",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9333/EditPartner?partner_id=2&username=maman&password=password&ljk_id=1&ktp_no=1221122&status=2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9333",
+							"path": [
+								"EditPartner"
+							],
+							"query": [
+								{
+									"key": "partner_id",
+									"value": "2"
+								},
+								{
+									"key": "username",
+									"value": "maman"
+								},
+								{
+									"key": "password",
+									"value": "password"
+								},
+								{
+									"key": "ljk_id",
+									"value": "1"
+								},
+								{
+									"key": "ktp_no",
+									"value": "1221122"
+								},
+								{
+									"key": "status",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Testing AuthenticatePartner",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9333/AuthenticatePartner?partner_id=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9333",
+							"path": [
+								"AuthenticatePartner"
+							],
+							"query": [
+								{
+									"key": "partner_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Collateral",
+			"item": [
+				{
+					"name": "Testing GetAllCollateral",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9333/GetAllCollateral",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9333",
+							"path": [
+								"GetAllCollateral"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Testing GetCollateralByID",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9333/GetCollateralByID/?coll_id=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9333",
+							"path": [
+								"GetCollateralByID",
+								""
+							],
+							"query": [
+								{
+									"key": "coll_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Testing GetCollateralByCategory",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9333/GetCollateralByCategory/?type_id=161",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9333",
+							"path": [
+								"GetCollateralByCategory",
+								""
+							],
+							"query": [
+								{
+									"key": "type_id",
+									"value": "161"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Testing GetCollateralByLJK",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9333/GetCollateralByLJK?ljk_id=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9333",
+							"path": [
+								"GetCollateralByLJK"
+							],
+							"query": [
+								{
+									"key": "ljk_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Testing GetCollateralByLocation",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9333/GetCollateralByLocation?coll_location=bekasi",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9333",
+							"path": [
+								"GetCollateralByLocation"
+							],
+							"query": [
+								{
+									"key": "coll_location",
+									"value": "bekasi"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Testing CreateCollateral",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9333/CreateCollateral?acc_id=4&type_id=163&owner_name=anji&coll_location=jakarta&initial_col_price=18000000&final_col_price=30000000&ljk_id=2&document_path=result.docx",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9333",
+							"path": [
+								"CreateCollateral"
+							],
+							"query": [
+								{
+									"key": "acc_id",
+									"value": "4"
+								},
+								{
+									"key": "type_id",
+									"value": "163"
+								},
+								{
+									"key": "owner_name",
+									"value": "anji"
+								},
+								{
+									"key": "coll_location",
+									"value": "jakarta"
+								},
+								{
+									"key": "initial_col_price",
+									"value": "18000000"
+								},
+								{
+									"key": "final_col_price",
+									"value": "30000000"
+								},
+								{
+									"key": "ljk_id",
+									"value": "2"
+								},
+								{
+									"key": "document_path",
+									"value": "result.docx"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Testing EditCollateral",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9333/EditCollateral?coll_id=1&acc_id=4&type_id=163&owner_name=anji&coll_location=jakarta&initial_col_price=18000000&final_col_price=30000000&ljk_id=2&document_path=result.docx",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9333",
+							"path": [
+								"EditCollateral"
+							],
+							"query": [
+								{
+									"key": "coll_id",
+									"value": "1"
+								},
+								{
+									"key": "acc_id",
+									"value": "4"
+								},
+								{
+									"key": "type_id",
+									"value": "163"
+								},
+								{
+									"key": "owner_name",
+									"value": "anji"
+								},
+								{
+									"key": "coll_location",
+									"value": "jakarta"
+								},
+								{
+									"key": "initial_col_price",
+									"value": "18000000"
+								},
+								{
+									"key": "final_col_price",
+									"value": "30000000"
+								},
+								{
+									"key": "ljk_id",
+									"value": "2"
+								},
+								{
+									"key": "document_path",
+									"value": "result.docx"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auction",
+			"item": [
+				{
+					"name": "Testing GetAllAuctions",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9333/GetAllAuctions",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9333",
+							"path": [
+								"GetAllAuctions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Testing GetAuctionsByID",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9333/GetAuctionsByID/?auction_id=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9333",
+							"path": [
+								"GetAuctionsByID",
+								""
+							],
+							"query": [
+								{
+									"key": "auction_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Testing GetAuctionsByDueDate",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9333/GetAuctionsByDueDate?due_date=2019-12-02",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9333",
+							"path": [
+								"GetAuctionsByDueDate"
+							],
+							"query": [
+								{
+									"key": "due_date",
+									"value": "2019-12-02"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Testing GetAuctionsByCollateral",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9333/GetAuctionsByCollateral?coll_location=jakarta",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9333",
+							"path": [
+								"GetAuctionsByCollateral"
+							],
+							"query": [
+								{
+									"key": "coll_location",
+									"value": "jakarta"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Testing CreateAuctions",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9333/CreateAuctions?coll_id=2&from_date=2019-06-05&due_date=2019-08-05&auction_method=2&down_payment=100000&description=note&status=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9333",
+							"path": [
+								"CreateAuctions"
+							],
+							"query": [
+								{
+									"key": "coll_id",
+									"value": "2"
+								},
+								{
+									"key": "from_date",
+									"value": "2019-06-05"
+								},
+								{
+									"key": "due_date",
+									"value": "2019-08-05"
+								},
+								{
+									"key": "auction_method",
+									"value": "2"
+								},
+								{
+									"key": "down_payment",
+									"value": "100000"
+								},
+								{
+									"key": "description",
+									"value": "note"
+								},
+								{
+									"key": "status",
+									"value": "1"
+								},
+								{
+									"key": "auction_count",
+									"value": "0",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Testing DeleteAuction",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9333/DeleteAuction?auction_id=2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9333",
+							"path": [
+								"DeleteAuction"
+							],
+							"query": [
+								{
+									"key": "auction_id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Testing ExtendDueDate",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9333/ExtendDueDate?auction_id=2&due_date=2019-09-09",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9333",
+							"path": [
+								"ExtendDueDate"
+							],
+							"query": [
+								{
+									"key": "auction_id",
+									"value": "2"
+								},
+								{
+									"key": "due_date",
+									"value": "2019-09-09"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Testing ChooseBid",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9333/ChooseBid?auction_id=3&accepted_bidder=2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9333",
+							"path": [
+								"ChooseBid"
+							],
+							"query": [
+								{
+									"key": "auction_id",
+									"value": "3"
+								},
+								{
+									"key": "accepted_bidder",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Testing ChangeAuctionToProcess",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9333/ChangeAuctionToProcess?auction_id=4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9333",
+							"path": [
+								"ChangeAuctionToProcess"
+							],
+							"query": [
+								{
+									"key": "auction_id",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Testing EditAuctions",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9333/EditAuctions?auction_id=2&coll_id=2&from_date=2019-06-05&due_date=2019-08-05&auction_method=2&down_payment=100000&description=note&status=1&auction_count=2&accepted_bidder=2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9333",
+							"path": [
+								"EditAuctions"
+							],
+							"query": [
+								{
+									"key": "auction_id",
+									"value": "2"
+								},
+								{
+									"key": "coll_id",
+									"value": "2"
+								},
+								{
+									"key": "from_date",
+									"value": "2019-06-05"
+								},
+								{
+									"key": "due_date",
+									"value": "2019-08-05"
+								},
+								{
+									"key": "auction_method",
+									"value": "2"
+								},
+								{
+									"key": "down_payment",
+									"value": "100000"
+								},
+								{
+									"key": "description",
+									"value": "note"
+								},
+								{
+									"key": "status",
+									"value": "1"
+								},
+								{
+									"key": "auction_count",
+									"value": "2"
+								},
+								{
+									"key": "accepted_bidder",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Bidding",
+			"item": [
+				{
+					"name": "Testing GetAllBids",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9333/GetAllBids",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9333",
+							"path": [
+								"GetAllBids"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Testing GetBidsByAuction",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9333/GetAllBids",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9333",
+							"path": [
+								"GetAllBids"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Testing CreateBiddings",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9333/CreateBiddings",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9333",
+							"path": [
+								"CreateBiddings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Testing PayBidDownPayment",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9333/PayBidDownPayment?auction_id=2&bidder_id=2&status=2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9333",
+							"path": [
+								"PayBidDownPayment"
+							],
+							"query": [
+								{
+									"key": "auction_id",
+									"value": "2"
+								},
+								{
+									"key": "bidder_id",
+									"value": "2"
+								},
+								{
+									"key": "status",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Testing CancelBid",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9333/CancelBid?bid_id=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9333",
+							"path": [
+								"CancelBid"
+							],
+							"query": [
+								{
+									"key": "bid_id",
+									"value": "1"
+								},
+								{
+									"key": "down_payment",
+									"value": "4000000",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

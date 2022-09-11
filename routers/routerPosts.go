@@ -14,4 +14,5 @@ func init() {
 	beego.Router("/article/", &controllers.PostsController{}, "post:CreatePosts")
 	beego.Router("/article/:id", &controllers.PostsController{}, "delete:DeletePosts")
 	beego.Router("/article/:id", &controllers.PostsController{}, "put,post,patch:EditPosts")
+	beego.Router("/articleUpdate/:id", &controllers.PostsController{}, "put,post,patch:UpdatePosts")
 }

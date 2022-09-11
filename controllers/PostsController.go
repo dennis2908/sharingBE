@@ -45,6 +45,12 @@ type cekPosts struct {
 	status   string
 }
 
+type cekPostsMin struct {
+	Title    string
+	Category string
+	status   string
+}
+
 func (api *PostsController) GetAllPosts() {
 	o := orm.NewOrm()
 	o.Using("default")
@@ -186,6 +192,37 @@ func AllPostsCheck(api *PostsController) string {
 	return ""
 }
 
+func MinPostsCheck(api *PostsController) string {
+	valid := validation.Validation{}
+
+	// var Posts []*models.Posts
+
+	Title := api.GetString("Title")
+	Category := api.GetString("Category")
+	status := api.GetString("Category")
+
+	u := cekPostsMin{Title, Category, status}
+	valid.Required(u.Title, "Title")
+	valid.Required(u.Category, "Category")
+	valid.Required(u.status, "status")
+	valid.MinSize(u.Title, 20, "title")
+	valid.MinSize(u.Category, 3, "Category")
+
+	if valid.HasErrors() {
+		// If there are error messages it means the validation didn't pass
+		// Print error message
+		for _, err := range valid.Errors {
+			return err.Key + err.Message
+		}
+	}
+
+	if IsValidCategory(api.GetString("Status")) == false {
+		return "Status is not valid. Choose publish, draft, or thrash"
+	}
+
+	return ""
+}
+
 func IsValidCategory(category string) bool {
 	switch category {
 	case
@@ -243,6 +280,36 @@ func (api *PostsController) EditPosts() {
 	Category := api.GetString("Category")
 	Status := api.GetString("Status")
 	PostsQry := models.Posts{Id: idInt, Title: Title, Content: Content, Category: Category, Status: Status}
+
+	// insert
+	_, err := o.Update(&PostsQry)
+	// sql = "INSERT INTO posts (Title, Content, Category, status,created_date,updated_date) VALUES ('" + Title + "'"
+	// sql += ",'" + Content + "','" + Category + "','" + status + "')"
+	// _, err := o.Raw(sql).QueryRows(&Posts)
+
+	if err != nil {
+		api.Data["json"] = err.Error()
+		api.ServeJSON()
+	}
+	api.Data["json"] = "Successfully edit data " + api.Ctx.Input.Param(":id")
+	api.ServeJSON()
+}
+
+func (api *PostsController) UpdatePosts() {
+	if MinPostsCheck(api) != "" {
+		api.Data["json"] = AllPostsCheck(api)
+		api.ServeJSON()
+	}
+
+	o := orm.NewOrm()
+	o.Using("default")
+
+	// var sql string
+	idInt, _ := strconv.Atoi(api.Ctx.Input.Param(":id"))
+	Title := api.GetString("Title")
+	Category := api.GetString("Category")
+	Status := api.GetString("Status")
+	PostsQry := models.Posts{Id: idInt, Title: Title, Category: Category, Status: Status}
 
 	// insert
 	_, err := o.Update(&PostsQry)

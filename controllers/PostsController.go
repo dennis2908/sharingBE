@@ -158,6 +158,20 @@ func (api *PostsController) DeletePosts() {
 	api.ServeJSON()
 }
 
+func (api *PostsController) ToTrash() {
+	o := orm.NewOrm()
+	o.Using("default")
+	var sql string
+	var Posts []ambilPosts
+	id := api.Ctx.Input.Param(":id")
+	sql = "update from posts set status='thrash' where id = '" + id + "'"
+	o.Raw(sql).QueryRows(&Posts)
+
+	api.Data["json"] = "succeed move to thrash with id = " + id
+
+	api.ServeJSON()
+}
+
 func AllPostsCheck(api *PostsController) string {
 	valid := validation.Validation{}
 

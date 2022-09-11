@@ -33,7 +33,7 @@ func init() { // init instead of int
 	orm.RegisterDriver("postgres", orm.DRPostgres)
 	orm.RegisterDataBase("default",
 		"postgres",
-		"user=postgres password=12345 host=127.0.0.1 port=5432 dbname=sharing sslmode=disable")
+		"user=sepzsrojgsurnm password=8471a6d259354847f27e3bc04f9b674b19038278e55e8ee9e94275e2a48310a3 host=ec2-52-200-5-135.compute-1.amazonaws.com port=5432 dbname=d79rc60ef2fovr sslmode=disable")
 	orm.RegisterModel(new(models.Posts))
 	orm.RunSyncdb("default", false, true)
 	orm.RunCommand()

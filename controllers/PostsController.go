@@ -311,7 +311,7 @@ func (api *PostsController) EditPosts() {
 
 func (api *PostsController) UpdatePosts() {
 	if MinPostsCheck(api) != "" {
-		api.Data["json"] = MinPostsCheck(api)
+		api.Data["json"] = api.GetString("Title")
 		api.ServeJSON()
 	}
 

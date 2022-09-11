@@ -54,6 +54,21 @@ func (api *PostsController) GetAllPosts() {
 	api.ServeJSON()
 }
 
+func (api *PostsController) GetRowCount() {
+	o := orm.NewOrm()
+	o.Using("default")
+	sql := "select status,count(*) from posts group by status"
+	var Posts []models.Posts
+	_, err := o.Raw(sql).QueryRows(&Posts)
+
+	if err == nil {
+		// ... handle error
+		api.Data["json"] = Posts
+	}
+
+	api.ServeJSON()
+}
+
 func (api *PostsController) GetAllPostsStatus() {
 	o := orm.NewOrm()
 	o.Using("default")

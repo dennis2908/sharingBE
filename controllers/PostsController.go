@@ -3,6 +3,7 @@ package controllers
 import (
 	models "api_beego/models"
 	"context"
+	"fmt"
 	_ "fmt"
 	_ "log"
 	"time"
@@ -32,6 +33,11 @@ type ambilPosts struct {
 	status   string
 }
 
+type countPosts struct {
+	status string
+	value  int
+}
+
 type cekPosts struct {
 	Title    string
 	Content  string
@@ -57,14 +63,18 @@ func (api *PostsController) GetAllPosts() {
 func (api *PostsController) GetRowCount() {
 	o := orm.NewOrm()
 	o.Using("default")
-	sql := "select status,count(*) from posts group by status"
-	var Posts []models.Posts
-	_, err := o.Raw(sql).QueryRows(&Posts)
+	// res := new(countPosts)
+	var list orm.ParamsList
+	sql := "select concat(status,':',count(*)) as countData from posts group by status"
+	// var countposts []countPosts
+	_, err := o.Raw(sql).ValuesFlat(&list)
 
 	if err == nil {
-		// ... handle error
-		api.Data["json"] = Posts
+		fmt.Println(list)
+		api.Data["json"] = list
 	}
+	fmt.Println(list)
+	api.Data["json"] = list
 
 	api.ServeJSON()
 }

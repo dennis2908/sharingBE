@@ -187,9 +187,9 @@ func (api *PostsController) CreatePosts() {
 	Title := api.GetString("Title")
 	Content := api.GetString("Content")
 	Category := api.GetString("Category")
-	status := api.GetString("Category")
+	Status := api.GetString("Status")
 
-	PostsQry := models.Posts{Title: Title, Content: Content, Category: Category, Status: status}
+	PostsQry := models.Posts{Title: Title, Content: Content, Category: Category, Status: Status}
 
 	// insert
 	_, err := o.Insert(&PostsQry)
@@ -216,8 +216,8 @@ func (api *PostsController) EditPosts() {
 	Title := api.GetString("Title")
 	Content := api.GetString("Content")
 	Category := api.GetString("Category")
-	status := api.GetString("Status")
-	PostsQry := models.Posts{Id: idInt, Title: Title, Content: Content, Category: Category, Status: status}
+	Status := api.GetString("Status")
+	PostsQry := models.Posts{Id: idInt, Title: Title, Content: Content, Category: Category, Status: Status}
 
 	// insert
 	_, err := o.Update(&PostsQry)

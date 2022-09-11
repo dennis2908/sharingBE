@@ -164,7 +164,7 @@ func (api *PostsController) ToTrash() {
 	var sql string
 	var Posts []ambilPosts
 	id := api.Ctx.Input.Param(":id")
-	sql = "update from posts set status='thrash' where id = '" + id + "'"
+	sql = "update posts set status='thrash' where id = '" + id + "'"
 	o.Raw(sql).QueryRows(&Posts)
 
 	api.Data["json"] = "succeed move to thrash with id = " + id

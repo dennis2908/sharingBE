@@ -154,7 +154,7 @@ func AllPostsCheck(api *PostsController) string {
 		}
 	}
 
-	if IsValidCategory(api.GetString("status")) == false {
+	if IsValidCategory(api.GetString("Status")) == false {
 		return "Status is not valid"
 	}
 

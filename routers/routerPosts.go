@@ -8,6 +8,7 @@ import (
 
 func init() {
 	beego.Router("/article/:limit/:offset", &controllers.PostsController{}, "get:GetAllPosts")
+	beego.Router("/article/:limit/:offset/:status", &controllers.PostsController{}, "get:GetAllPostsStatus")
 	beego.Router("/article/:id", &controllers.PostsController{}, "get:GetPostsByID")
 	beego.Router("/article/", &controllers.PostsController{}, "post:CreatePosts")
 	beego.Router("/article/:id", &controllers.PostsController{}, "delete:DeletePosts")

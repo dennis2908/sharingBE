@@ -54,6 +54,21 @@ func (api *PostsController) GetAllPosts() {
 	api.ServeJSON()
 }
 
+func (api *PostsController) GetAllPostsStatus() {
+	o := orm.NewOrm()
+	o.Using("default")
+	sql := "select * from posts where status = '" + api.Ctx.Input.Param(":status") + "' limit " + api.Ctx.Input.Param(":limit") + " offset " + api.Ctx.Input.Param(":offset")
+	var Posts []models.Posts
+	_, err := o.Raw(sql).QueryRows(&Posts)
+
+	if err == nil {
+		// ... handle error
+		api.Data["json"] = Posts
+	}
+
+	api.ServeJSON()
+}
+
 func GetAllCollateralCheck() {
 	_, err := bm.Get(context.Background(), "data")
 	if err != nil {
@@ -201,7 +216,7 @@ func (api *PostsController) EditPosts() {
 	Title := api.GetString("Title")
 	Content := api.GetString("Content")
 	Category := api.GetString("Category")
-	status := api.GetString("Category")
+	status := api.GetString("Status")
 	PostsQry := models.Posts{Id: idInt, Title: Title, Content: Content, Category: Category, Status: status}
 
 	// insert

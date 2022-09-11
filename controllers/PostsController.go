@@ -155,7 +155,7 @@ func AllPostsCheck(api *PostsController) string {
 	}
 
 	if IsValidCategory(api.GetString("Status")) == false {
-		return "Status is not valid"
+		return "Status is not valid. Choose publish, draft, or thrash"
 	}
 
 	return ""

@@ -326,12 +326,9 @@ func (api *PostsController) EditPosts() {
 }
 
 func (api *PostsController) UpdatePosts() {
-	frm := api.Ctx.Input.RequestBody
-	u := &ambilPostsX{}
-	json.Unmarshal(frm, u)
 
 	if MinPostsCheck(api) != "" {
-		api.Data["json"] = u.Title
+		api.Data["json"] = MinPostsCheck(api)
 		api.ServeJSON()
 		return
 	}
@@ -339,9 +336,9 @@ func (api *PostsController) UpdatePosts() {
 	o := orm.NewOrm()
 	o.Using("default")
 
-	// frm := api.Ctx.Input.RequestBody
-	// u := &ambilPostsX{}
-	// json.Unmarshal(frm, u)
+	frm := api.Ctx.Input.RequestBody
+	u := &ambilPostsX{}
+	json.Unmarshal(frm, u)
 
 	Title := u.Title
 	Category := u.Category

@@ -339,9 +339,9 @@ func (api *PostsController) UpdatePosts() {
 	o := orm.NewOrm()
 	o.Using("default")
 
-	frm := api.Ctx.Input.RequestBody
-	u := &ambilPostsX{}
-	json.Unmarshal(frm, u)
+	// frm := api.Ctx.Input.RequestBody
+	// u := &ambilPostsX{}
+	// json.Unmarshal(frm, u)
 
 	Title := u.Title
 	Category := u.Category

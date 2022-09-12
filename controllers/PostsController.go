@@ -262,31 +262,36 @@ func IsValidCategory(category string) bool {
 
 func (api *PostsController) CreatePosts() {
 
+	frm := api.Ctx.Input.RequestBody
 	if AllPostsCheck(api) != "" {
 		api.Data["json"] = AllPostsCheck(api)
 		api.ServeJSON()
+		return
 	}
 
 	o := orm.NewOrm()
 	o.Using("default")
 
-	// var sql string
-
-	Title := api.GetString("Title")
-	Content := api.GetString("Content")
-	Category := api.GetString("Category")
-	Status := api.GetString("Status")
-
-	PostsQry := models.Posts{Title: Title, Content: Content, Category: Category, Status: Status}
+	u := &ambilPosts{}
+	json.Unmarshal(frm, u)
+	idInt, _ := strconv.Atoi(api.Ctx.Input.Param(":id"))
+	Title := u.Title
+	Content := u.Content
+	Category := u.Category
+	Status := u.Status
+	PostsQry := models.Posts{Id: idInt, Title: Title, Content: Content, Category: Category, Status: Status}
 
 	// insert
 	_, err := o.Insert(&PostsQry)
+	// sql = "INSERT INTO posts (Title, Content, Category, status,created_date,updated_date) VALUES ('" + Title + "'"
+	// sql += ",'" + Content + "','" + Category + "','" + status + "')"
+	// _, err := o.Raw(sql).QueryRows(&Posts)
 
 	if err != nil {
 		api.Data["json"] = err.Error()
 		api.ServeJSON()
 	}
-	api.Data["json"] = "Successfully add new data"
+	api.Data["json"] = "Successfully edit data " + api.Ctx.Input.Param(":id")
 	api.ServeJSON()
 }
 

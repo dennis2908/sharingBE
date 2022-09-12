@@ -3,9 +3,9 @@ package controllers
 import (
 	models "api_beego/models"
 	"context"
+	"encoding/json"
 	"fmt"
 	_ "fmt"
-	_ "log"
 	"time"
 
 	"strconv"
@@ -26,11 +26,18 @@ type PostsController struct {
 }
 
 type ambilPosts struct {
-	id       int
+	Id       int
 	Title    string
 	Content  string
 	Category string
-	status   string
+	Status   string
+}
+
+type ambilPostsX struct {
+	Id       int
+	Title    string
+	Category string
+	Status   string
 }
 
 type countPosts struct {
@@ -42,13 +49,13 @@ type cekPosts struct {
 	Title    string
 	Content  string
 	Category string
-	status   string
+	Status   string
 }
 
 type cekPostsMin struct {
 	Title    string
 	Category string
-	status   string
+	Status   string
 }
 
 func (api *PostsController) GetAllPosts() {
@@ -177,17 +184,22 @@ func AllPostsCheck(api *PostsController) string {
 
 	// var Posts []*models.Posts
 
-	Title := api.GetString("Title")
-	Content := api.GetString("Content")
-	Category := api.GetString("Category")
-	status := api.GetString("Category")
+	frm := api.Ctx.Input.RequestBody
+	ul := &ambilPosts{}
+	json.Unmarshal(frm, ul)
+	// fmt.Println(u.Category)
 
-	u := cekPosts{Title, Content, Category, status}
+	Title := ul.Title
+	Category := ul.Category
+	Status := ul.Status
+	Content := ul.Content
+
+	u := cekPosts{Title, Content, Category, Status}
 	valid.Required(u.Title, "Title")
 	valid.Required(u.Content, "Content")
 	valid.Required(u.Category, "Category")
-	valid.Required(u.status, "status")
-	valid.MinSize(u.Title, 20, "title")
+	valid.Required(u.Status, "Status")
+	valid.MinSize(u.Title, 20, "Title")
 	valid.MinSize(u.Content, 200, "Content")
 	valid.MinSize(u.Category, 3, "Category")
 
@@ -199,7 +211,7 @@ func AllPostsCheck(api *PostsController) string {
 		}
 	}
 
-	if IsValidCategory(api.GetString("Status")) == false {
+	if IsValidCategory(Status) == false {
 		return "Status is not valid. Choose publish, draft, or thrash"
 	}
 
@@ -209,28 +221,28 @@ func AllPostsCheck(api *PostsController) string {
 func MinPostsCheck(api *PostsController) string {
 	valid := validation.Validation{}
 
-	// var Posts []*models.Posts
+	frm := api.Ctx.Input.RequestBody
+	u := &ambilPostsX{}
+	json.Unmarshal(frm, u)
 
-	Title := api.GetString("Title")
-	Category := api.GetString("Category")
-	status := api.GetString("Category")
+	Title := u.Title
+	Category := u.Category
+	Status := u.Status
 
-	u := cekPostsMin{Title, Category, status}
-	valid.Required(u.Title, "Title")
-	valid.Required(u.Category, "Category")
-	valid.Required(u.status, "status")
-	valid.MinSize(u.Title, 20, "title")
-	valid.MinSize(u.Category, 3, "Category")
+	um := cekPostsMin{Title, Category, Status}
+	valid.Required(um.Title, "Title")
+	valid.Required(um.Category, "Category")
+	valid.Required(um.Status, "Status")
+	valid.MinSize(um.Title, 20, "Title")
+	valid.MinSize(um.Category, 3, "Category")
 
 	if valid.HasErrors() {
-		// If there are error messages it means the validation didn't pass
-		// Print error message
 		for _, err := range valid.Errors {
 			return err.Key + err.Message
 		}
 	}
 
-	if IsValidCategory(api.GetString("Status")) == false {
+	if IsValidCategory(Status) == false {
 		return "Status is not valid. Choose publish, draft, or thrash"
 	}
 
@@ -279,20 +291,23 @@ func (api *PostsController) CreatePosts() {
 }
 
 func (api *PostsController) EditPosts() {
+	frm := api.Ctx.Input.RequestBody
 	if AllPostsCheck(api) != "" {
 		api.Data["json"] = AllPostsCheck(api)
 		api.ServeJSON()
+		return
 	}
 
 	o := orm.NewOrm()
 	o.Using("default")
 
-	// var sql string
+	u := &ambilPosts{}
+	json.Unmarshal(frm, u)
 	idInt, _ := strconv.Atoi(api.Ctx.Input.Param(":id"))
-	Title := api.GetString("Title")
-	Content := api.GetString("Content")
-	Category := api.GetString("Category")
-	Status := api.GetString("Status")
+	Title := u.Title
+	Content := u.Content
+	Category := u.Category
+	Status := u.Status
 	PostsQry := models.Posts{Id: idInt, Title: Title, Content: Content, Category: Category, Status: Status}
 
 	// insert
@@ -310,31 +325,28 @@ func (api *PostsController) EditPosts() {
 }
 
 func (api *PostsController) UpdatePosts() {
+
 	if MinPostsCheck(api) != "" {
-		api.Data["json"] = api.GetString("Title")
+		api.Data["json"] = MinPostsCheck(api)
 		api.ServeJSON()
+		return
 	}
 
 	o := orm.NewOrm()
 	o.Using("default")
 
-	// var sql string
-	idInt, _ := strconv.Atoi(api.Ctx.Input.Param(":id"))
-	Title := api.GetString("Title")
-	Category := api.GetString("Category")
-	Status := api.GetString("Status")
-	PostsQry := models.Posts{Id: idInt, Title: Title, Category: Category, Status: Status}
+	frm := api.Ctx.Input.RequestBody
+	u := &ambilPostsX{}
+	json.Unmarshal(frm, u)
 
-	// insert
-	_, err := o.Update(&PostsQry)
-	// sql = "INSERT INTO posts (Title, Content, Category, status,created_date,updated_date) VALUES ('" + Title + "'"
-	// sql += ",'" + Content + "','" + Category + "','" + status + "')"
-	// _, err := o.Raw(sql).QueryRows(&Posts)
+	Title := u.Title
+	Category := u.Category
+	Status := u.Status
 
-	if err != nil {
-		api.Data["json"] = err.Error()
-		api.ServeJSON()
-	}
+	var Posts []ambilPosts
+
+	sql := "update posts set status='" + Status + "',title='" + Title + "', category='" + Category + "' where id = '" + api.Ctx.Input.Param(":id") + "'"
+	o.Raw(sql).QueryRows(&Posts)
 	api.Data["json"] = "Successfully edit data " + api.Ctx.Input.Param(":id")
 	api.ServeJSON()
 }

@@ -315,11 +315,7 @@ func (api *PostsController) EditPosts() {
 	Status := u.Status
 	PostsQry := models.Posts{Id: idInt, Title: Title, Content: Content, Category: Category, Status: Status}
 
-	// insert
 	_, err := o.Update(&PostsQry)
-	// sql = "INSERT INTO posts (Title, Content, Category, status,created_date,updated_date) VALUES ('" + Title + "'"
-	// sql += ",'" + Content + "','" + Category + "','" + status + "')"
-	// _, err := o.Raw(sql).QueryRows(&Posts)
 
 	if err != nil {
 		api.Data["json"] = err.Error()

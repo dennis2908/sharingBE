@@ -291,7 +291,7 @@ func (api *PostsController) CreatePosts() {
 		api.Data["json"] = err.Error()
 		api.ServeJSON()
 	}
-	api.Data["json"] = "Successfully edit data " + api.Ctx.Input.Param(":id")
+	api.Data["json"] = "Successfully save data "
 	api.ServeJSON()
 }
 

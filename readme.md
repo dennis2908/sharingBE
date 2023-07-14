@@ -1,4 +1,8 @@
 ```
+Built with go v1.16, beego
+```
+
+```
 docker compose build
 ```
 

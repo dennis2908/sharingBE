@@ -61,7 +61,8 @@ type cekPostsMin struct {
 func (api *PostsController) GetAllPosts() {
 	o := orm.NewOrm()
 	o.Using("default")
-	sql := "select * from posts limit " + api.Ctx.Input.Param(":limit") + " offset " + api.Ctx.Input.Param(":offset")
+	sql := "select id,title,content,category,status from posts limit " + api.Ctx.Input.Param(":limit") + " offset " + api.Ctx.Input.Param(":offset")
+
 	var Posts []models.Posts
 	_, err := o.Raw(sql).QueryRows(&Posts)
 
@@ -95,7 +96,7 @@ func (api *PostsController) GetRowCount() {
 func (api *PostsController) GetAllPostsStatus() {
 	o := orm.NewOrm()
 	o.Using("default")
-	sql := "select * from posts where status = '" + api.Ctx.Input.Param(":status") + "' limit " + api.Ctx.Input.Param(":limit") + " offset " + api.Ctx.Input.Param(":offset")
+	sql := "select id,title,content,category,status from posts where status = '" + api.Ctx.Input.Param(":status") + "' limit " + api.Ctx.Input.Param(":limit") + " offset " + api.Ctx.Input.Param(":offset")
 	var Posts []models.Posts
 	_, err := o.Raw(sql).QueryRows(&Posts)
 
@@ -103,6 +104,7 @@ func (api *PostsController) GetAllPostsStatus() {
 		// ... handle error
 		api.Data["json"] = Posts
 	}
+	fmt.Println(sql)
 
 	api.ServeJSON()
 }
@@ -321,7 +323,7 @@ func (api *PostsController) EditPosts() {
 		api.Data["json"] = err.Error()
 		api.ServeJSON()
 	}
-	api.Data["json"] = "Successfully edit data " + api.Ctx.Input.Param(":id")
+	api.Data["json"] = "Successfully update data " + api.Ctx.Input.Param(":id")
 	api.ServeJSON()
 }
 
@@ -348,6 +350,7 @@ func (api *PostsController) UpdatePosts() {
 
 	sql := "update posts set status='" + Status + "',title='" + Title + "', category='" + Category + "' where id = '" + api.Ctx.Input.Param(":id") + "'"
 	o.Raw(sql).QueryRows(&Posts)
-	api.Data["json"] = "Successfully edit data " + api.Ctx.Input.Param(":id")
+	fmt.Println("successfully update data")
+	api.Data["json"] = "Successfully update data " + api.Ctx.Input.Param(":id")
 	api.ServeJSON()
 }

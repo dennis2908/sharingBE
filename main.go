@@ -31,15 +31,23 @@ func init() { // init instead of int
 		AllowCredentials: true,
 	}))
 	orm.RegisterDriver("postgres", orm.DRPostgres)
-	orm.RegisterDataBase("default",
-		"postgres",
-		"user=sepzsrojgsurnm password=8471a6d259354847f27e3bc04f9b674b19038278e55e8ee9e94275e2a48310a3 host=ec2-52-200-5-135.compute-1.amazonaws.com port=5432 dbname=d79rc60ef2fovr sslmode=require")
+	orm.RegisterDataBase("default", 
+        "postgres",
+        "user=postgres password=postgres host=dbSharing port=5432 dbname=postgres sslmode=disable");
+	// orm.RegisterDataBase("default", "postgres", "root:root@/orm_test?charset=utf8")
+	// orm.Using("default")
 	orm.RegisterModel(new(models.Posts))
+	beego.Debug("Filters init...")
 	orm.RunSyncdb("default", false, true)
 	orm.RunCommand()
 }
 func main() {
 	_, err := cache.NewCache("file", `{"CachePath":"./cache","FileSuffix":".cache", "EmbedExpiry": "120"}`)
+
+	orm.Debug = true
+
+    o := orm.NewOrm()
+    o.Using("default")
 
 	if err != nil {
 		logs.Error(err)

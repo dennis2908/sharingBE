@@ -1,8 +1,21 @@
-## Instalasi Localhost : </br>
-- Install go versi 1.19
-- git clone https://github.com/dennis2908/sharingBE
-- Buka Cmd di folder instalasi dan install dependensi library
-- bee run
+```
+docker compose build
+```
 
-## Postman : </br>
-- Dalam Folder Postman
+```
+docker compose up
+```
+
+```
+Username : console 
+Password : myconsole
+
+```
+
+```
+Front End : https://github.com/dennis2908/sharingFE
+```
+
+```
+Video : https://www.youtube.com/watch?v=fLawYtP_uCg
+```

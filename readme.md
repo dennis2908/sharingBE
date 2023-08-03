@@ -19,7 +19,3 @@ Password : myconsole
 ```
 Front End : https://github.com/dennis2908/sharingFE
 ```
-
-```
-Video : https://www.youtube.com/watch?v=fLawYtP_uCg
-```

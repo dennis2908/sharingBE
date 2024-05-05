@@ -19,7 +19,7 @@ import (
 	_ "github.com/shopspring/decimal"
 )
 
-var bm, vvv = cache.NewCache("file", `{"CachePath":"./cache","FileSuffix":".cache", "EmbedExpiry": "1200000000"}`)
+var bm, _ = cache.NewCache("file", `{"CachePath":"./cache","FileSuffix":".cache", "EmbedExpiry": "1200000000"}`)
 
 type PostsController struct {
 	beego.Controller
@@ -208,7 +208,7 @@ func AllPostsCheck(api *PostsController) string {
 		}
 	}
 
-	if IsValidCategory(Status) == false {
+	if !IsValidCategory(Status) {
 		return "Status is not valid. Choose publish, draft, or thrash"
 	}
 
@@ -239,7 +239,7 @@ func MinPostsCheck(api *PostsController) string {
 		}
 	}
 
-	if IsValidCategory(Status) == false {
+	if !IsValidCategory(Status) {
 		return "Status is not valid. Choose publish, draft, or thrash"
 	}
 

@@ -31,9 +31,9 @@ func init() { // init instead of int
 		AllowCredentials: true,
 	}))
 	orm.RegisterDriver("postgres", orm.DRPostgres)
-	orm.RegisterDataBase("default", 
-        "postgres",
-        "user=postgres password=postgres host=dbSharing port=5432 dbname=postgres sslmode=disable");
+	orm.RegisterDataBase("default",
+		"postgres",
+		"user=postgres password=123456 host=localhost port=5432 dbname=sharing sslmode=disable")
 	// orm.RegisterDataBase("default", "postgres", "root:root@/orm_test?charset=utf8")
 	// orm.Using("default")
 	orm.RegisterModel(new(models.Posts))
@@ -46,8 +46,8 @@ func main() {
 
 	orm.Debug = true
 
-    o := orm.NewOrm()
-    o.Using("default")
+	o := orm.NewOrm()
+	o.Using("default")
 
 	if err != nil {
 		logs.Error(err)

@@ -40,11 +40,6 @@ type ambilPostsX struct {
 	Status   string
 }
 
-type countPosts struct {
-	status string
-	value  int
-}
-
 type cekPosts struct {
 	Title    string
 	Content  string
@@ -276,6 +271,9 @@ func (api *PostsController) CreatePosts() {
 
 	u := &ambilPosts{}
 	json.Unmarshal(frm, u)
+	fmt.Println(frm)
+	api.Data["json"] = "Successfully created data"
+	api.ServeJSON()
 	idInt, _ := strconv.Atoi(api.Ctx.Input.Param(":id"))
 	Title := u.Title
 	Content := u.Content
@@ -283,11 +281,8 @@ func (api *PostsController) CreatePosts() {
 	Status := u.Status
 	PostsQry := models.Posts{Id: idInt, Title: Title, Content: Content, Category: Category, Status: Status}
 
-	// insert
+	// // insert
 	_, err := o.Insert(&PostsQry)
-	// sql = "INSERT INTO posts (Title, Content, Category, status,created_date,updated_date) VALUES ('" + Title + "'"
-	// sql += ",'" + Content + "','" + Category + "','" + status + "')"
-	// _, err := o.Raw(sql).QueryRows(&Posts)
 
 	if err != nil {
 		api.Data["json"] = err.Error()

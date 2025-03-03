@@ -1,7 +1,7 @@
 package routers
 
 import (
-	"api_beego/controllers"
+	"sharingBE/controllers"
 
 	"github.com/astaxie/beego"
 )

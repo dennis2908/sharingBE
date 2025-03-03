@@ -76,32 +76,32 @@
         <subPane>
           <expand>
             <path>
-              <item name="api_beego" type="b2602c69:ProjectViewProjectNode" />
-              <item name="api_beego" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="sharingBE" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sharingBE" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
-              <item name="api_beego" type="b2602c69:ProjectViewProjectNode" />
-              <item name="api_beego" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="sharingBE" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sharingBE" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="controllers" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
-              <item name="api_beego" type="b2602c69:ProjectViewProjectNode" />
-              <item name="api_beego" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="sharingBE" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sharingBE" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="models" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
-              <item name="api_beego" type="b2602c69:ProjectViewProjectNode" />
-              <item name="api_beego" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="sharingBE" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sharingBE" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="postman_collection" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
-              <item name="api_beego" type="b2602c69:ProjectViewProjectNode" />
-              <item name="api_beego" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="sharingBE" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sharingBE" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="routers" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
-              <item name="api_beego" type="b2602c69:ProjectViewProjectNode" />
-              <item name="api_beego" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="sharingBE" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sharingBE" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="static" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>

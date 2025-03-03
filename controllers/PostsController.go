@@ -1,7 +1,7 @@
 package controllers
 
 import (
-	models "api_beego/models"
+	models "sharingBE/models"
 	"context"
 	"encoding/json"
 	"fmt"

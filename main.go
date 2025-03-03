@@ -1,8 +1,8 @@
 package main
 
 import (
-	"api_beego/models"
-	_ "api_beego/routers"
+	"sharingBE/models"
+	_ "sharingBE/routers"
 	"log"
 	"os"
 	"strconv"

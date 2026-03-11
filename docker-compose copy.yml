@@ -1,0 +1,28 @@
+version: '3.9'
+
+services:
+  beego:
+    container_name: beego
+    image: beego/dm:1.0
+    build: .
+    ports:
+      - "9333:9333"
+    environment:
+      ConnectionStrings__DefaultConnection: "Host=dbC;Database=postgres;Username=postgres;Password=postgres"
+    depends_on:
+      - "dbC"
+  dbC:
+    container_name: dbC
+    image: postgres:12
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_DB: postgres
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./seeds/init.sql:/docker-entrypoint-initdb.d/init.sql
+
+volumes:
+  pgdata: {}
